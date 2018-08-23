@@ -12,11 +12,8 @@ function checkHash($password, $hash) {
 
 function saveUser($login, $hash) {
     $str = "$login:$hash\n";
-    if(file_put_contents(FILE_NAME, $str, FILE_APPEND)) {
-        return true;
-    } else {
-        return false;
-    }
+    return (bool)file_put_contents(FILE_NAME, $str, FILE_APPEND);
+
 }
 
 function userExists($login) {
